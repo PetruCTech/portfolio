@@ -18,17 +18,20 @@ const Navbar = () => {
     }
   };
 
-  useEffect(setLink, []);
+  useEffect(() => {
+    setLink();
+    window.addEventListener("hashchange", setLink);
 
-  // listen hash change
-  window.addEventListener("hashchange", setLink);
+    return () => {
+      window.removeEventListener("hashchange", setLink);
+    };
+  }, []);
 
   return (
     <nav className="app__navbar">
       <div className="app__navbar-logo">
-        {/* Logo */}
-        <a href={`#${links.navbar_links[0]}`} title="Micael">
-          <img src={images.logo} alt="Micael" />
+        <a href={`#${links.navbar_links[0]}`} title="Petru Constantin">
+          <img src={images.logo} alt="Petru Constantin" />
         </a>
       </div>
       <ul className="app__navbar-links">
@@ -46,21 +49,18 @@ const Navbar = () => {
           </li>
         ))}
       </ul>
-      {/* Source Code */}
       <button
         type="button"
         className="app__navbar-btn"
-        title="View Source Code on Github"
+        title="View GitHub profile"
         onClick={() => window.open(links.source_code, "_blank", "noopener")}
       >
-        Source Code
+        GitHub
       </button>
 
       <div className="app__navbar-menu">
-        {/* Toggle Menu */}
         <HiMenuAlt4 onClick={() => setToggle(true)} />
 
-        {/* Navbar Menu [MOBILE] */}
         {toggle && (
           <motion.div
             whileInView={{ x: [300, 0] }}
@@ -86,9 +86,9 @@ const Navbar = () => {
                   href={links.source_code}
                   target="_blank"
                   rel="noreferrer noopener"
-                  title="View Source Code on Github"
+                  title="View GitHub profile"
                 >
-                  Source Code
+                  GitHub
                 </a>
               </li>
             </ul>

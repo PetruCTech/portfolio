@@ -2,7 +2,7 @@ import React from "react";
 import { motion } from "framer-motion";
 
 import { AppWrap } from "../../wrapper";
-import { images } from "../../constants";
+import { images, portfolio } from "../../constants";
 import "./Header.scss";
 
 // scale variant
@@ -21,7 +21,6 @@ const scaleVariants = {
 const Header = () => {
   return (
     <div id="home" className="app__header app__flex">
-      {/* About Me */}
       <motion.div
         whileInView={{ x: [-100, 0], opacity: [0, 1] }}
         transition={{ duration: 0.5 }}
@@ -32,13 +31,14 @@ const Header = () => {
             <span>👋</span>
             <div style={{ marginLeft: 20 }}>
               <p className="p-text">Hello, I am</p>
-              <h1 className="head-text">Micael</h1>
+              <h1 className="head-text">{portfolio.hero.name}</h1>
             </div>
           </div>
 
           <div className="tag-cmp app__flex">
-            <p className="p-text">Web Developer</p>
-            <p className="p-text">Freelancer</p>
+            <p className="p-text">{portfolio.hero.title}</p>
+            <p className="p-text">{portfolio.hero.location}</p>
+            <p className="p-text">{portfolio.hero.intro}</p>
           </div>
         </div>
       </motion.div>
@@ -66,9 +66,12 @@ const Header = () => {
         whileInView={scaleVariants.whileInView}
         className="app__header-circles"
       >
-        {[images.flutter, images.redux, images.sass].map((circle, index) => (
+        {portfolio.hero.stats.map((stat, index) => (
           <div className="circle-cmp app__flex" key={`circle-${index}`}>
-            <img src={circle} alt="Circle" />
+            <div className="app__header-stat">
+              <strong>{stat.value}</strong>
+              <span>{stat.label}</span>
+            </div>
           </div>
         ))}
       </motion.div>

@@ -1,6 +1,4 @@
-import { BsTwitter } from "react-icons/bs";
-import { FaFacebookF } from "react-icons/fa";
-import { AiFillGithub } from "react-icons/ai";
+import { AiFillGithub, AiFillLinkedin, AiOutlineMail } from "react-icons/ai";
 
 // Navbar links
 const navbar_links = [
@@ -14,31 +12,32 @@ const navbar_links = [
 
 // Contact links
 const contact_links = {
-  email: "contactme@micael.com",
-  phone: "+1 (123) 456-789",
+  email: "petru.constantain.try@outlook.com",
+  phone: "LinkedIn",
+  linkedin: "https://www.linkedin.com/in/petru-c",
 };
 
 // Social links
 const social_links = [
   {
-    name: "Twitter",
-    icon: <BsTwitter />,
-    url: "http://x.com/_sanidhyy",
+    name: "Email",
+    icon: <AiOutlineMail />,
+    url: "mailto:petru.constantain.try@outlook.com",
   },
   {
-    name: "Facebook",
-    icon: <FaFacebookF />,
-    url: "http://facebook.com",
+    name: "LinkedIn",
+    icon: <AiFillLinkedin />,
+    url: "https://www.linkedin.com/in/petru-c",
   },
   {
     name: "Github",
     icon: <AiFillGithub />,
-    url: "http://github.com/sanidhyy",
+    url: "https://github.com/PetruCTech",
   },
 ];
 
 // Source code
-const source_code = "https://github.com/sanidhyy/portfolio-react";
+const source_code = "https://github.com/PetruCTech";
 
 // links
 const links = {
