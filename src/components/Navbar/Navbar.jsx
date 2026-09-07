@@ -2,7 +2,7 @@ import React, { useEffect, useState } from "react";
 import { HiMenuAlt4, HiX } from "react-icons/hi";
 import { motion } from "framer-motion";
 
-import { images, links } from "../../constants";
+import { links } from "../../constants";
 import "./Navbar.scss";
 
 // Navbar
@@ -31,7 +31,7 @@ const Navbar = () => {
     <nav className="app__navbar">
       <div className="app__navbar-logo">
         <a href={`#${links.navbar_links[0]}`} title="Petru Constantin">
-          <img src={images.logo} alt="Petru Constantin" />
+          Petru<span>Constantin</span>
         </a>
       </div>
       <ul className="app__navbar-links">

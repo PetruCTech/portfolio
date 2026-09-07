@@ -8,9 +8,9 @@ const portfolio = {
       "I design and build scalable AI-powered SaaS platforms, web applications, and intelligent automation systems from architecture through production.",
     location: "Bucharest, Romania",
     stats: [
-      { label: "Years of experience", value: "10+" },
-      { label: "Current focus", value: "AI/ML SaaS" },
+      { label: "Current focus", value: "AI/ML" },
       { label: "Delivery style", value: "End-to-end" },
+      { label: "Years exp.", value: "10+" },
     ],
   },
   about: {

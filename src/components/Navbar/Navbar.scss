@@ -19,13 +19,21 @@
   justify-content: flex-start;
   align-items: center;
 
-  img {
-    width: 90px;
-    height: 20px;
+  a {
+    font-size: 1.15rem;
+    font-weight: 800;
+    color: var(--black-color);
+    text-decoration: none;
+    letter-spacing: -0.02em;
+    white-space: nowrap;
+
+    span {
+      color: var(--secondary-color);
+      margin-left: 0.3rem;
+    }
 
     @media screen and (min-width: 2000px) {
-      width: 180px;
-      height: 40px;
+      font-size: 2rem;
     }
   }
 }
