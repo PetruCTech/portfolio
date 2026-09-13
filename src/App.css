@@ -1,0 +1,180 @@
+/* App-specific styles */
+
+html {
+  scroll-behavior: smooth;
+}
+
+main {
+  position: relative;
+  z-index: 1;
+}
+
+.particle-bg {
+  position: relative;
+  overflow: hidden;
+}
+
+.particle-bg::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background:
+    radial-gradient(circle at 20% 80%, rgba(14, 165, 233, 0.1) 0%, transparent 50%),
+    radial-gradient(circle at 80% 20%, rgba(20, 184, 166, 0.1) 0%, transparent 50%),
+    radial-gradient(circle at 40% 40%, rgba(56, 189, 248, 0.06) 0%, transparent 40%);
+  animation: particle-float 20s ease-in-out infinite;
+  pointer-events: none;
+  z-index: 0;
+}
+
+@keyframes particle-float {
+  0%, 100% {
+    transform: translateY(0) scale(1);
+    opacity: 1;
+  }
+  50% {
+    transform: translateY(-16px) scale(1.03);
+    opacity: 0.85;
+  }
+}
+
+.glass-card {
+  position: relative;
+  overflow: hidden;
+}
+
+.glass-card::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: -100%;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(
+    90deg,
+    transparent,
+    rgba(14, 165, 233, 0.08),
+    transparent
+  );
+  transition: left 0.5s ease;
+}
+
+.glass-card:hover::before {
+  left: 100%;
+}
+
+.gradient-text {
+  background: linear-gradient(135deg, #0284c7, #0d9488, #0369a1, #0284c7);
+  background-size: 300% 300%;
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+  animation: gradient-text-shift 6s ease infinite;
+}
+
+@keyframes gradient-text-shift {
+  0% { background-position: 0% 50%; }
+  50% { background-position: 100% 50%; }
+  100% { background-position: 0% 50%; }
+}
+
+.glow-text {
+  filter: drop-shadow(0 2px 10px rgba(14, 165, 233, 0.18));
+}
+
+.glass-button {
+  position: relative;
+  overflow: hidden;
+}
+
+.glass-button::after {
+  content: '';
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  width: 0;
+  height: 0;
+  background: radial-gradient(circle, rgba(255, 255, 255, 0.25) 0%, transparent 70%);
+  transform: translate(-50%, -50%);
+  transition: width 0.3s ease, height 0.3s ease;
+  border-radius: 50%;
+}
+
+.glass-button:hover::after {
+  width: 200%;
+  height: 200%;
+}
+
+input:focus,
+textarea:focus {
+  box-shadow: 0 0 0 2px rgba(14, 165, 233, 0.2);
+}
+
+::-webkit-scrollbar {
+  width: 8px;
+  height: 8px;
+}
+
+::-webkit-scrollbar-track {
+  background: rgba(14, 165, 233, 0.06);
+  border-radius: 4px;
+}
+
+::-webkit-scrollbar-thumb {
+  background: linear-gradient(180deg, #0ea5e9, #14b8a6);
+  border-radius: 4px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: linear-gradient(180deg, #0284c7, #0d9488);
+}
+
+::selection {
+  background: rgba(14, 165, 233, 0.25);
+  color: inherit;
+}
+
+*:focus-visible {
+  outline: 2px solid rgba(14, 165, 233, 0.45);
+  outline-offset: 2px;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+  }
+}
+
+@media (max-width: 768px) {
+  .glass-card {
+    backdrop-filter: blur(10px);
+    -webkit-backdrop-filter: blur(10px);
+  }
+
+  .particle-bg::before {
+    animation: none;
+  }
+}
+
+@media print {
+  .glass,
+  .glass-card {
+    background: white !important;
+    backdrop-filter: none !important;
+    border: 1px solid #ddd !important;
+    box-shadow: none !important;
+  }
+
+  .gradient-text {
+    background: none !important;
+    -webkit-text-fill-color: black !important;
+    color: black !important;
+  }
+}
