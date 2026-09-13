@@ -7,6 +7,7 @@ import Contact from '../pages/Contact';
 
 interface AnimatedRoutesProps {
   currentPage: string;
+  onNavigate: (page: string) => void;
 }
 
 const pageVariants = {
@@ -33,11 +34,11 @@ const pageTransition: Transition = {
   damping: 30,
 };
 
-const AnimatedRoutes: React.FC<AnimatedRoutesProps> = ({ currentPage }) => {
+const AnimatedRoutes: React.FC<AnimatedRoutesProps> = ({ currentPage, onNavigate }) => {
   const renderPage = () => {
     switch (currentPage) {
       case 'home':
-        return <Home />;
+        return <Home onNavigate={onNavigate} />;
       case 'about':
         return <About />;
       case 'skills':
@@ -47,7 +48,7 @@ const AnimatedRoutes: React.FC<AnimatedRoutesProps> = ({ currentPage }) => {
       case 'contact':
         return <Contact />;
       default:
-        return <Home />;
+        return <Home onNavigate={onNavigate} />;
     }
   };
 

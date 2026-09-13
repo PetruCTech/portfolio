@@ -56,7 +56,7 @@ function App() {
             }}
           >
             <div className="h-full">
-              <AnimatedRoutes currentPage={currentPage} />
+              <AnimatedRoutes currentPage={currentPage} onNavigate={handleNavigate} />
             </div>
           </main>
 

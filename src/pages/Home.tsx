@@ -4,7 +4,11 @@ import { ArrowDown, Sparkles } from 'lucide-react';
 
 const titles = ['Senior Full Stack Engineer', 'AI/ML Engineer', 'Python & React Specialist'];
 
-const Home: React.FC = () => {
+interface HomeProps {
+  onNavigate: (page: string) => void;
+}
+
+const Home: React.FC<HomeProps> = ({ onNavigate }) => {
   const [currentTitleIndex, setCurrentTitleIndex] = useState(0);
   const [displayText, setDisplayText] = useState('');
   const [isDeleting, setIsDeleting] = useState(false);
@@ -186,24 +190,26 @@ const Home: React.FC = () => {
               animate={{ opacity: 1, y: 0 }}
               transition={{ delay: 0.8 }}
             >
-              <motion.a
-                href="#projects"
+              <motion.button
+                type="button"
+                onClick={() => onNavigate('projects')}
                 className="glass-button flex items-center justify-center gap-2"
                 whileHover={{ scale: 1.05 }}
                 whileTap={{ scale: 0.95 }}
               >
                 <span>View My Work</span>
                 <ArrowDown className="w-4 h-4" />
-              </motion.a>
+              </motion.button>
               
-              <motion.a
-                href="#contact"
+              <motion.button
+                type="button"
+                onClick={() => onNavigate('contact')}
                 className="px-6 py-3 rounded-full border border-sky-500/50 text-sky-600 hover:bg-sky-500/10 transition-colors flex items-center justify-center gap-2"
                 whileHover={{ scale: 1.05 }}
                 whileTap={{ scale: 0.95 }}
               >
                 <span>Get In Touch</span>
-              </motion.a>
+              </motion.button>
             </motion.div>
             
             <motion.div
