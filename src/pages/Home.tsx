@@ -96,7 +96,7 @@ const Home: React.FC = () => {
                 transition={{ duration: 0.3 }}
               >
                 <img
-                  src="/profile.png"
+                  src={`${import.meta.env.BASE_URL}profile.png`}
                   alt="Petru Constantin"
                   className="w-full h-full object-cover object-center"
                 />
