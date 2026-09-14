@@ -8,6 +8,7 @@ interface Project {
   github?: string;
   category: string;
   tech: string[];
+  image: string;
 }
 
 const projects: Project[] = [
@@ -18,6 +19,7 @@ const projects: Project[] = [
     url: 'https://github.com/PetruCTech',
     category: 'AI / ML',
     tech: ['Python', 'LangChain', 'RAG', 'LLMs', 'FastAPI'],
+    image: 'ai-powered-saas.png',
   },
   {
     name: 'Agent Framework (Python)',
@@ -27,6 +29,7 @@ const projects: Project[] = [
     github: 'https://github.com/PetruCTech/Agent-Framework-Python',
     category: 'AI / ML',
     tech: ['Python', 'AI Agents', 'LLMs'],
+    image: 'agent-framework-python.png',
   },
   {
     name: 'Enterprise Web Applications',
@@ -35,6 +38,7 @@ const projects: Project[] = [
     url: 'https://github.com/PetruCTech',
     category: 'Full Stack',
     tech: ['React', 'Angular', 'Node.js', 'Python', 'PostgreSQL'],
+    image: 'enterprise-web-applications.png',
   },
   {
     name: 'Next.js Dashboard',
@@ -44,6 +48,7 @@ const projects: Project[] = [
     github: 'https://github.com/PetruCTech/Dashboard_Next.js',
     category: 'Full Stack',
     tech: ['Next.js', 'React', 'TypeScript'],
+    image: 'next-dashboard.png',
   },
   {
     name: 'Code Ocean Research Platform',
@@ -52,6 +57,7 @@ const projects: Project[] = [
     url: 'https://github.com/PetruCTech',
     category: 'Platform',
     tech: ['React', 'Node.js', 'REST APIs', 'JavaScript'],
+    image: 'code-ocean-platform.png',
   },
   {
     name: 'React Native ToDo',
@@ -61,6 +67,7 @@ const projects: Project[] = [
     github: 'https://github.com/PetruCTech/ReactNative_ToDoList',
     category: 'Platform',
     tech: ['React Native', 'JavaScript'],
+    image: 'react-native-todo.png',
   },
 ];
 
@@ -160,17 +167,12 @@ const Projects: React.FC = () => {
                     variants={itemVariants}
                     whileHover={{ y: -8 }}
                   >
-                    <div className="relative h-40 md:h-48 overflow-hidden">
-                      <div
-                        className="absolute inset-0 flex items-center justify-center"
-                        style={{
-                          background: `linear-gradient(135deg, ${categoryColor}40, ${categoryColor}10)`,
-                        }}
-                      >
-                        <span className="text-5xl font-bold gradient-text">
-                          {project.name.charAt(0)}
-                        </span>
-                      </div>
+                    <div className="relative h-40 md:h-48 overflow-hidden bg-muted/20">
+                      <img
+                        src={`${import.meta.env.BASE_URL}projects/${project.image}`}
+                        alt={project.name}
+                        className="absolute inset-0 w-full h-full object-cover transition-transform duration-500 group-hover:scale-105"
+                      />
 
                       <motion.div className="absolute inset-0 bg-black/60 flex items-center justify-center opacity-0 group-hover:opacity-100 transition-opacity">
                         <motion.a
