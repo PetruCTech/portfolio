@@ -111,7 +111,8 @@ const Contact: React.FC = () => {
             Get In Touch
           </motion.span>
           <h1 className="text-3xl md:text-4xl lg:text-5xl font-bold mb-4">
-            Let&apos;s <span className="gradient-text">Connect</span>
+            Let&apos;s Turn Your Ideas Into{' '}
+            <span className="gradient-text">Great Production</span>
           </h1>
           <p className="text-muted-foreground max-w-2xl mx-auto">
             Have a project in mind or want to collaborate? I&apos;d love to hear from you!
