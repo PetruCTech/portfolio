@@ -10,7 +10,6 @@ import {
   Send,
   Copy,
   Check,
-  Globe,
 } from 'lucide-react';
 
 interface ContactCard {
@@ -53,14 +52,6 @@ const contactCards: ContactCard[] = [
     icon: Linkedin,
     href: 'https://www.linkedin.com/in/petru-constantin-913945427/',
     color: '#0A66C2',
-    isExternal: true,
-  },
-  {
-    name: 'Portfolio',
-    value: 'petructech.github.io/portfolio',
-    icon: Globe,
-    href: 'https://petructech.github.io/portfolio/',
-    color: '#0ea5e9',
     isExternal: true,
   },
 ];
