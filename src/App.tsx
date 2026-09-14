@@ -30,7 +30,7 @@ function App() {
 
   return (
     <ThemeProvider>
-      <div className="min-h-screen bg-background text-foreground">
+      <div className="min-h-screen min-h-[100dvh] bg-background text-foreground">
         {/* Landing Animation */}
         <AnimatePresence>
           {isLoading && (
@@ -43,17 +43,14 @@ function App() {
           initial={{ opacity: 0 }}
           animate={{ opacity: isLoading ? 0 : 1 }}
           transition={{ duration: 0.5, delay: 0.2 }}
-          className="flex flex-col min-h-screen"
+          className="flex flex-col min-h-screen min-h-[100dvh]"
         >
           {/* Fixed Header */}
           <Header />
 
           {/* Main Content Area */}
           <main 
-            className="flex-1 pt-16 md:pt-20 pb-16 md:pb-20 overflow-auto"
-            style={{
-              minHeight: 'calc(100vh - 80px - 64px)',
-            }}
+            className="flex-1 pt-16 md:pt-20 pb-20 md:pb-24 overflow-auto bg-background"
           >
             <div className="h-full">
               <AnimatedRoutes currentPage={currentPage} onNavigate={handleNavigate} />

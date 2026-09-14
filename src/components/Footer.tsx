@@ -27,9 +27,10 @@ const Footer: React.FC<FooterProps> = ({ currentPage, onNavigate }) => {
       initial={{ y: 100, opacity: 0 }}
       animate={{ y: 0, opacity: 1 }}
       transition={{ duration: 0.6, ease: [0.4, 0, 0.2, 1], delay: 0.2 }}
-      className="fixed bottom-0 left-0 right-0 z-50 h-16 md:h-20"
+      className="fixed inset-x-0 bottom-0 z-50 bg-background"
+      style={{ paddingBottom: 'env(safe-area-inset-bottom, 0px)' }}
     >
-      <div className="glass h-full px-4 md:px-8 flex items-center justify-center">
+      <div className="glass h-16 md:h-20 px-4 md:px-8 flex items-center justify-center border-t border-border/60">
         <nav className="flex items-center gap-2 md:gap-4">
           {navItems.map((item, index) => {
             const Icon = item.icon;
