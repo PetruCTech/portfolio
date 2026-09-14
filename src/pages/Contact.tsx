@@ -257,7 +257,7 @@ const Contact: React.FC = () => {
                     onChange={(e) => setFormData({ ...formData, message: e.target.value })}
                     placeholder="Tell me about your project or collaboration idea..."
                     rows={4}
-                    className="contact-message w-full px-4 py-3 rounded-xl bg-white/60 border border-sky-200/80 focus:border-sky-500/50 focus:outline-none transition-colors resize-none overflow-y-auto"
+                    className="contact-message w-full px-4 py-3 rounded-xl glass-card bg-transparent border border-transparent focus:border-sky-500/50 focus:outline-none transition-colors resize-none"
                     required
                   />
                 </div>

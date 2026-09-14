@@ -91,6 +91,10 @@ main {
   scrollbar-gutter: stable;
 }
 
+.contact-message:hover {
+  transform: none !important;
+}
+
 .contact-message::-webkit-scrollbar {
   width: 8px;
 }
