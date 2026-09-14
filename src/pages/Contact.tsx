@@ -65,8 +65,6 @@ const contactCards: ContactCard[] = [
   },
 ];
 
-const CONTACT_EMAIL = 'jackmitchel723@gmail.com';
-
 const Contact: React.FC = () => {
   const [copiedField, setCopiedField] = useState<string | null>(null);
   const [formData, setFormData] = useState({
@@ -74,8 +72,6 @@ const Contact: React.FC = () => {
     email: '',
     message: '',
   });
-  const [status, setStatus] = useState<'idle' | 'sending' | 'success' | 'error'>('idle');
-  const [statusMessage, setStatusMessage] = useState('');
 
   const handleCopy = (value: string, name: string) => {
     navigator.clipboard.writeText(value);
@@ -83,41 +79,10 @@ const Contact: React.FC = () => {
     setTimeout(() => setCopiedField(null), 2000);
   };
 
-  const handleSubmit = async (e: React.FormEvent) => {
+  const handleSubmit = (e: React.FormEvent) => {
     e.preventDefault();
-    setStatus('sending');
-    setStatusMessage('');
-
-    try {
-      const response = await fetch(`https://formsubmit.co/ajax/${CONTACT_EMAIL}`, {
-        method: 'POST',
-        headers: {
-          'Content-Type': 'application/json',
-          Accept: 'application/json',
-        },
-        body: JSON.stringify({
-          name: formData.name,
-          email: formData.email,
-          message: formData.message,
-          _subject: `Portfolio contact from ${formData.name}`,
-          _template: 'table',
-          _captcha: 'false',
-        }),
-      });
-
-      const result = await response.json().catch(() => ({}));
-
-      if (!response.ok) {
-        throw new Error(result.message || 'Failed to send message');
-      }
-
-      setStatus('success');
-      setStatusMessage('Message sent successfully. I will get back to you soon.');
-      setFormData({ name: '', email: '', message: '' });
-    } catch {
-      setStatus('error');
-      setStatusMessage('Could not send your message. Please email me directly or try again.');
-    }
+    alert('Thank you for your message! I will get back to you soon.');
+    setFormData({ name: '', email: '', message: '' });
   };
 
   const containerVariants = {
@@ -308,25 +273,13 @@ const Contact: React.FC = () => {
 
                 <motion.button
                   type="submit"
-                  disabled={status === 'sending'}
-                  className="w-full glass-button flex items-center justify-center gap-2 py-3 disabled:opacity-60 disabled:cursor-not-allowed"
-                  whileHover={status === 'sending' ? undefined : { scale: 1.02 }}
-                  whileTap={status === 'sending' ? undefined : { scale: 0.98 }}
+                  className="w-full glass-button flex items-center justify-center gap-2 py-3"
+                  whileHover={{ scale: 1.02 }}
+                  whileTap={{ scale: 0.98 }}
                 >
                   <Send className="w-4 h-4" />
-                  <span>{status === 'sending' ? 'Sending...' : 'Send Message'}</span>
+                  <span>Send Message</span>
                 </motion.button>
-
-                {statusMessage && (
-                  <p
-                    className={`text-sm text-center ${
-                      status === 'success' ? 'text-green-600' : 'text-red-500'
-                    }`}
-                    role="status"
-                  >
-                    {statusMessage}
-                  </p>
-                )}
               </div>
             </motion.form>
 
